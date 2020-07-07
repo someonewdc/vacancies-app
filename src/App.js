@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header } from './components/Header';
+import { ContentWrapper } from './components/ContentWrapper';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <div className="container">
         </div>
       </Header>
+      <ContentWrapper />
     </div>
   );
 }
