@@ -17,11 +17,35 @@ const StyledItem = styled.li`
   padding: 25px 40px;
 `
 
-export const ItemWrapper = () => {
+export const ItemWrapper = ({
+  company,
+  position,
+  postedAt,
+  contract,
+  location,
+  isNew,
+  featured,
+  role,
+  level,
+  languages,
+  tools
+}) => {
   return (
     <StyledItem>
-      <ItemDescription />
-      <ItemCategories />
+      <ItemDescription 
+        company={company}
+        position={position}
+        postedAt={postedAt}
+        contract={contract}
+        location={location}
+        isNew={isNew}
+        featured={featured}
+      />
+      <ItemCategories 
+        categories={
+          [role, level, tools, languages]
+        }
+      />
     </StyledItem>
   )
 }

@@ -25,6 +25,12 @@ ul, li, p, h4, h5 {
   list-style: none;
 }
 
+button {
+  margin: 0;
+  padding: 0;
+  border: 0; 
+}
+
 .container {
   max-width: 1440px;
   margin: 0 auto;

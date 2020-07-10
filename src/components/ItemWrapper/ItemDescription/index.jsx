@@ -50,21 +50,29 @@ const VacancyInformation = styled.div`
   }
 `
 
-export const ItemDescription = () => {
+export const ItemDescription = ({
+  company,
+  position,
+  postedAt,
+  contract,
+  location,
+  isNew,
+  featured,
+}) => {
   return (
     <StyledDescription>
       <ItemImg />
       <DescriptionWrapper>
         <CompanyTitle> 
-          { 'Photosnap' }
+          { company }
         </CompanyTitle>
         <CompanyPosition> 
-          { 'Senior Frontend Developer' }
+          { position }
         </CompanyPosition>
         <VacancyInformation> 
-          <span>{ '1d ago' }</span>
-          <span>{ 'Full Time' }</span>
-          <span>{ 'USA only' }</span>
+          <span>{ postedAt }</span>
+          <span>{ contract }</span>
+          <span>{ location }</span>
         </VacancyInformation>
       </DescriptionWrapper>
     </StyledDescription>

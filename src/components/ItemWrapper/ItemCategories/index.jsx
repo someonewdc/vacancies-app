@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useDispatch } from 'react-redux';
+import * as actions from '../../../store/vacancies/actions'
 
 const CategoriesWrapper = styled.div`
   display: flex;
@@ -13,17 +15,43 @@ const Category = styled.div`
   font-size: 12px;
   cursor: pointer;
   font-weight: 600;
+  transition: background .1s ease-in-out, color .1s ease-in-out;
+
+  &:hover {
+    background: #293c3a;
+    color: #ffffff;
+  }
 
   &:not(:last-child) {
     margin-right: 15px;
   }
 `
 
-export const ItemCategories = () => {
+export const ItemCategories = ({
+  categories
+}) => {
+
+  const dispatch = useDispatch()
+
+  const onCategoryClick = (category) => {
+    dispatch(actions.addSearchingCategory(category))
+    dispatch(actions.filterVacancies(category))
+  }
+
   return (
     <CategoriesWrapper>
-      <Category>Frontend</Category>
-      <Category>Backend</Category>
+      {
+        categories.map(c => typeof c === 'string'
+          ? <Category 
+              key={c + Math.random()}
+              onClick={() => onCategoryClick(c)}
+            >{c}</Category> 
+          : c.map(item => 
+            <Category 
+              key={c.length * Math.random()}
+              onClick={() => onCategoryClick(item)}
+            >{item}</Category>))
+      }
     </CategoriesWrapper>
   )
 }
