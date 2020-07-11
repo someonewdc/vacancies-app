@@ -35,7 +35,7 @@ export const ItemCategories = ({
 
   const onCategoryClick = (category) => {
     dispatch(actions.addSearchingCategory(category))
-    dispatch(actions.filterVacancies(category))
+    dispatch(actions.filterVacancies())
   }
 
   return (

@@ -70,6 +70,11 @@ export const SearchBlock = () => {
   const searchingCategories = useSelector(state => state.vacanciesReducer.searchingCategories)
   const dispatch = useDispatch()
 
+  const onDeleteCategoryClick = (category) => {
+    dispatch(actions.removeSearchingCategory(category))
+    dispatch(actions.filterVacancies())
+  }
+
   return (
     <StyledSearchBlock>
       {
@@ -79,7 +84,7 @@ export const SearchBlock = () => {
           >
             {category}
             <DeleteCategoryButton 
-              onClick={() => dispatch(actions.removeSearchingCategory(category))}
+              onClick={() => onDeleteCategoryClick(category)}
             />
           </SearchingCategory>
         )

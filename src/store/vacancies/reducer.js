@@ -18,11 +18,11 @@ export const reducer = (state = initialState, action) => {
         initialVacancies: data,
         filteredVacancies: data,
       }
-    case types.FILTER_VACANCIES: 
+    case types.FILTER_VACANCIES:
       return {
         ...state,
-        filteredVacancies: state.filteredVacancies
-          .filter(vacancy => vacancyFilter(vacancy, payload))
+        filteredVacancies: state.initialVacancies
+          .filter(vacancy => vacancyFilter(vacancy, state.searchingCategories))
       }
     case types.ADD_SEARCHING_CATEGORY:
       return {

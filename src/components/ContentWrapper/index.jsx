@@ -23,6 +23,7 @@ export const ContentWrapper = () => {
 
   useEffect(() => {
     dispatch(actions.fetchVacancies())
+    //eslint-disable-next-line
   }, [])
 
   return (
